@@ -11,7 +11,7 @@ pipeline {
             }
        stage('login') {
          steps {
-           sh 'docker login -u $DOCKER'
+           sh 'docker login $DOCKER'
              }
           }
        stage('push') {
