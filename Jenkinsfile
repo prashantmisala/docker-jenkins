@@ -6,7 +6,7 @@ pipeline {
     stages {
        stage('building image') {
           steps {
-            sh 'docker build -t c1 .'
+            sh 'docker build -t prashant1311/jen:latest .'
 		}
             }
        stage('login') {
@@ -14,9 +14,14 @@ pipeline {
            sh 'docker login -u $DOCKER'
              }
           }
+       stage('push') {
+         steps {
+           sh 'docker push prashant1311/jen:latest'
+             }
+          }    
        stage('running') {
           steps {
-           sh 'docker run -dt --name=c2 c1'  
+           sh 'docker run -dt --name=c3 prashant1311/jen:latest'  
              }
          }
       }
